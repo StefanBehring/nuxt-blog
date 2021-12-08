@@ -1,25 +1,13 @@
 <template>
   <section class="post-list">
     <PostPreview
-      id="1"
-      title="Big news"
+      v-for="post in posts"
+      :id="post.id"
+      :key="post.id"
+      :title="post.title"
       :is-admin="isAdmin"
-      preview-text="There is something fishy going on"
-      thumbnail="https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png"
-    />
-    <PostPreview
-      id="2"
-      title="Big news #2"
-      :is-admin="isAdmin"
-      preview-text="There is something fishy going on"
-      thumbnail="https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png"
-    />
-    <PostPreview
-      id="3"
-      title="(3) Big news"
-      :is-admin="isAdmin"
-      preview-text="There is something fishy going on"
-      thumbnail="https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png"
+      :preview-text="post.previewText"
+      :thumbnail="post.thumbnail"
     />
   </section>
 </template>
@@ -35,6 +23,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    posts: {
+      type: Array,
+      required: true,
     },
   },
 }
