@@ -3,35 +3,16 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        title="Big news"
-        preview-text="There is something fishy going on"
-        thumbnail="https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png"
-      />
-      <PostPreview
-        id="2"
-        title="Big news #2"
-        preview-text="There is something fishy going on"
-        thumbnail="https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png"
-      />
-      <PostPreview
-        id="3"
-        title="(3) Big news"
-        preview-text="There is something fishy going on"
-        thumbnail="https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png"
-      />
-    </section>
+    <PostList />
   </div>
 </template>
 
 <script>
-import PostPreview from '@/components/Posts/PostPreview.vue'
+import PostList from '@/components/Posts/PostList.vue'
 
 export default {
   components: {
-    PostPreview,
+    PostList,
   },
 }
 </script>
@@ -66,14 +47,5 @@ export default {
   .intro h1 {
     font-size: 2rem;
   }
-}
-
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>
