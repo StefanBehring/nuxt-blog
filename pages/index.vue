@@ -14,30 +14,10 @@ export default {
   components: {
     PostList,
   },
-  data() {
-    return {
-      loadedPosts: [],
-    }
-  },
-  created() {
-    setTimeout(() => {
-      this.loadedPosts = [
-        {
-          id: '1',
-          title: 'First Post',
-          previewText: 'This is our first post',
-          thumbnail:
-            'https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png',
-        },
-        {
-          id: '2',
-          title: 'Second Post',
-          previewText: 'This is our second post',
-          thumbnail:
-            'https://upload.wikimedia.org/wikipedia/commons/1/14/Big_Tech_companies.png',
-        },
-      ]
-    }, 2000)
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    },
   },
 }
 </script>
