@@ -4,12 +4,16 @@
 
     <AppControlInput v-model="editedPost.title">Title</AppControlInput>
 
-    <AppControlInput v-model="editedPost.thumbnailLink"
+    <AppControlInput v-model="editedPost.thumbnail"
       >Thumbnail Link</AppControlInput
     >
 
     <AppControlInput v-model="editedPost.content" control-type="textarea"
       >Content</AppControlInput
+    >
+
+    <AppControlInput v-model="editedPost.previewText" control-type="textarea"
+      >Preview Text</AppControlInput
     >
 
     <AppButton type="submit">Save</AppButton>
@@ -25,14 +29,7 @@
 </template>
 
 <script>
-import AppButton from '@/components/UI/AppButton.vue'
-import AppControlInput from '@/components/UI/AppControlInput.vue'
-
 export default {
-  components: {
-    AppButton,
-    AppControlInput,
-  },
   props: {
     post: {
       type: Object,
@@ -46,14 +43,16 @@ export default {
         : {
             author: '',
             title: '',
-            thumbnailLink: '',
+            thumbnail: '',
             content: '',
+            previewText: '',
           },
     }
   },
   methods: {
     onSave() {
       // Save the post
+      this.$emit('submit', this.editedPost)
     },
     onCancel() {
       // Cancel
