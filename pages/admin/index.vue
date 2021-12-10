@@ -13,14 +13,7 @@
 </template>
 
 <script>
-import AppButton from '@/components/UI/AppButton.vue'
-import PostList from '@/components/Posts/PostList.vue'
-
 export default {
-  components: {
-    AppButton,
-    PostList,
-  },
   layout: 'admin',
 }
 </script>
