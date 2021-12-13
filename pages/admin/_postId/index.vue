@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import AdminPostForm from '@/components/Admin/AdminPostForm.vue'
 
 export default {
@@ -15,16 +14,13 @@ export default {
     AdminPostForm,
   },
   layout: 'admin',
+  middleware: ['check-auth', 'auth'],
   asyncData(context) {
-    return axios
-      .get(
-        'https://nuxt-blog-5f7a5-default-rtdb.europe-west1.firebasedatabase.app/posts/' +
-          context.params.postId +
-          '.json'
-      )
+    return context.app.$axios
+      .$get('/posts/' + context.params.postId + '.json')
       .then((res) => {
         return {
-          loadedPost: { ...res.data, id: context.params.postId },
+          loadedPost: { ...res, id: context.params.postId },
         }
       })
       .catch((e) => context.error(e))

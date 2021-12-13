@@ -42,10 +42,24 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    baseURL:
+      process.env.BASE_URL ||
+      'https://nuxt-blog-5f7a5-default-rtdb.europe-west1.firebasedatabase.app',
+    credentials: false,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  env: {
+    baseURL:
+      process.env.BASE_URL ||
+      'https://nuxt-blog-5f7a5-default-rtdb.europe-west1.firebasedatabase.app',
+    fbAPIKey: '',
+  },
 
   pageTransition: {
     name: 'fade',

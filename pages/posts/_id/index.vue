@@ -20,19 +20,13 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   asyncData(context) {
-    return axios
-      .get(
-        'https://nuxt-blog-5f7a5-default-rtdb.europe-west1.firebasedatabase.app/posts/' +
-          context.params.id +
-          '.json'
-      )
+    return context.app.$axios
+      .$get('/posts/' + context.params.id + '.json')
       .then((res) => {
         return {
-          loadedPost: res.data,
+          loadedPost: res,
         }
       })
       .catch((e) => context.error(e))
